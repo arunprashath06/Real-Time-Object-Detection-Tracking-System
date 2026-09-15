@@ -1,4 +1,4 @@
-﻿# Real-Time Object Detection, Multi-Object Tracking & Spatial Analytics System
+# Real-Time Object Detection, Multi-Object Tracking and Spatial Analytics System
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io)
 [![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)](https://www.python.org/)
@@ -12,7 +12,7 @@ An edge-deployable, high-throughput computer vision pipeline engineered for real
 
 ## 📌 Architecture Overview
 
-`
+```
                           ┌────────────────────────┐
                           │   Video Input Stream   │
                           │ (RTSP / Webcam / File) │
@@ -22,22 +22,22 @@ An edge-deployable, high-throughput computer vision pipeline engineered for real
                           ┌────────────────────────┐
                           │ Object Detection Layer │
                           │  (YOLOv8 with TensorRT │
-                          │   & FP16 Optimization) │
+                          │   and FP16 Optimization) │
                           └───────────┬────────────┘
                                       │ (xyxy, class_id, conf)
                                       ▼
                           ┌────────────────────────┐
                           │ Multi-Object Tracker   │
                           │ (ByteTrack Association │
-                          │  & Persistent TrackID) │
+                          │  and Persistent TrackID) │
                           └───────────┬────────────┘
-                                      │ (Active Tracks & Centroids)
+                                      │ (Active Tracks and Centroids)
                                       ▼
                  ┌────────────────────┴────────────────────┐
                  │                                         │
                  ▼                                         ▼
    ┌───────────────────────────┐             ┌───────────────────────────┐
-   │    Spatial Telemetry      │             │  Visualization & Overlay  │
+   │    Spatial Telemetry      │             │  Visualization and Overlay  │
    │  - Bi-directional Tripwire│             │  - Dynamic Bounding Boxes │
    │  - Polygon Zone Intrusion │             │  - Trajectory Trail HUD   │
    │  - Trajectory Analysis    │             │  - Live Throughput (FPS)  │
@@ -47,16 +47,16 @@ An edge-deployable, high-throughput computer vision pipeline engineered for real
                                       ▼
                           ┌────────────────────────┐
                           │ Interactive Dashboard  │
-                          │  (Streamlit & OpenCV)  │
+                          │  (Streamlit and OpenCV)  │
                           └────────────────────────┘
-`
+```
 
 ---
 
 ## 🚀 Key Features
 
 - **High-Throughput Detection:** Leverages Ultralytics YOLOv8 architectures (
-ano, small, medium, x-large) with GPU acceleration (CUDA & half-precision FP16), achieving sub-10ms latency and 90+ FPS on dedicated hardware.
+ano, small, medium, x-large) with GPU acceleration (CUDA and half-precision FP16), achieving sub-10ms latency and 90+ FPS on dedicated hardware.
 - **Robust Multi-Object Tracking (ByteTrack):** Implements two-stage data association using Kalman filtering and Hungarian matching over IoU (Intersection over Union). Handles severe occlusions, motion blur, and low-confidence detections without track fragmentation.
 - **Directional Virtual Tripwire:** Vector cross-product mathematics track object trajectories between sequential frames (-1$ to $), accurately tallying bi-directional inflows and outflows.
 - **Restricted Safety Geofencing:** Polygon zone intrusion detection based on the ray-casting point-in-polygon algorithm, generating real-time visual alerts for industrial workcell safety and restricted-area monitoring.
@@ -68,10 +68,10 @@ ano, small, medium, x-large) with GPU acceleration (CUDA & half-precision FP16),
 
 ## 🛠️ Tech Stack
 
-- **Core Vision & ML:** Python 3.11, Ultralytics YOLOv8, PyTorch, TorchVision, Supervision
-- **Image & Stream Processing:** OpenCV (cv2), NumPy
-- **Spatial Analytics & Telemetry:** Shapely, SciPy, Lapx
-- **Web UI & Visualization:** Streamlit, Plotly, Pandas
+- **Core Vision and ML:** Python 3.11, Ultralytics YOLOv8, PyTorch, TorchVision, Supervision
+- **Image and Stream Processing:** OpenCV (cv2), NumPy
+- **Spatial Analytics and Telemetry:** Shapely, SciPy, Lapx
+- **Web UI and Visualization:** Streamlit, Plotly, Pandas
 - **Hardware Acceleration:** NVIDIA CUDA 12.4, Tensor Cores
 
 ---
@@ -91,14 +91,14 @@ ano, small, medium, x-large) with GPU acceleration (CUDA & half-precision FP16),
 
 ## 📂 Project Structure
 
-`
+```
 Real-Time-Object-Detection-Tracking-System/
 │
 ├── core/
 │   ├── __init__.py
 │   ├── detector.py          # Modular YOLO detection wrapper with device auto-resolution
-│   ├── tracker.py           # ByteTrack multi-object tracking & trajectory caching
-│   ├── analytics.py         # Vector tripwire counting & polygon intrusion logic
+│   ├── tracker.py           # ByteTrack multi-object tracking and trajectory caching
+│   ├── analytics.py         # Vector tripwire counting and polygon intrusion logic
 │   └── visualizer.py        # Stream visualizer rendering HUD, traces, and alert banners
 │
 ├── data/
@@ -107,25 +107,25 @@ Real-Time-Object-Detection-Tracking-System/
 ├── benchmarks/
 │   └── benchmark.py         # Hardware latency, P50/P95 distribution, and FPS profiler
 │
-├── app.py                   # Streamlit web application for cloud & local dashboard
+├── app.py                   # Streamlit web application for cloud and local dashboard
 ├── main.py                  # Standalone low-latency OpenCV runner
 ├── requirements.txt         # Production dependencies for cloud deployment
 ├── run_dashboard.bat        # Windows one-click dashboard launcher
 └── run_webcam.bat           # Windows one-click webcam launcher
-`
+```
 
 ---
 
-## 💻 Installation & Quick Start
+## 💻 Installation and Quick Start
 
 ### 1. Clone the Repository
-`ash
+```ash
 git clone https://github.com/arunprashath06/Real-Time-Object-Detection-Tracking-System.git
 cd Real-Time-Object-Detection-Tracking-System
-`
+```
 
 ### 2. Create and Activate a Virtual Environment
-`ash
+```ash
 # Windows
 python -m venv venv
 .\venv\Scripts\activate
@@ -133,33 +133,33 @@ python -m venv venv
 # Linux / macOS
 python3 -m venv venv
 source venv/bin/activate
-`
+```
 
 ### 3. Install Dependencies
-`ash
+```ash
 pip install -r requirements.txt
-`
+```
 
 ### 4. Launch the Application
 
 **Option A — Web Dashboard (Streamlit):**
-`ash
+```ash
 streamlit run app.py
-`
+```
 
 **Option B — Native High-Speed CLI Stream:**
-`ash
+```ash
 # Live Webcam
 python main.py --source 0 --model yolov8s.pt --conf 0.40
 
 # Custom Video File
 python main.py --source path/to/video.mp4 --model yolov8m.pt
-`
+```
 
 **Option C — Run Hardware Benchmark:**
-`ash
+```ash
 python benchmarks/benchmark.py
-`
+```
 
 ---
 
