@@ -1,0 +1,23 @@
+﻿# Virtual Environment (Local to your E: drive)
+venv/
+.venv/
+env/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore local documents unrelated to repo
+*.docx
+*.pdf
+CV_AI_ML_Updated.txt
+
+# Model checkpoints (Streamlit auto-downloads models on first run; keeping repo lightweight)
+yolov8*.pt
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini

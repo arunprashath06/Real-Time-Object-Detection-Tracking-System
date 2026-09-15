@@ -1,0 +1,9 @@
+﻿ultralytics>=8.3.0
+supervision>=0.25.0
+opencv-python-headless>=4.10.0
+numpy>=1.26.0
+streamlit>=1.40.0
+plotly>=5.24.0
+pandas>=2.2.0
+torch
+torchvision
