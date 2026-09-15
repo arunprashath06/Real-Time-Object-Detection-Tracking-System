@@ -25,8 +25,8 @@ IS_CLOUD = not torch.cuda.is_available()
 st.sidebar.header("⚙️ Pipeline Configuration")
 
 if IS_CLOUD:
-    available_models = ["yolov8n.pt", "yolov8s.pt"]
-    st.sidebar.info("☁️ Running on Streamlit Cloud (CPU mode). yolov8n is recommended for speed.")
+    available_models = ["yolov8s.pt", "yolov8n.pt"]
+    st.sidebar.info("☁️ Running on Streamlit Cloud (CPU mode). yolov8s gives best accuracy; yolov8n is faster.")
 else:
     available_models = ["yolov8n.pt", "yolov8s.pt"]
     if os.path.exists("yolov8m.pt"):
@@ -35,7 +35,7 @@ else:
         available_models.append("yolov8x.pt")
 
 model_type   = st.sidebar.selectbox("Model Architecture", available_models, index=0)
-conf_thresh  = st.sidebar.slider("Detection Confidence", 0.10, 0.90, 0.35, 0.05)
+conf_thresh  = st.sidebar.slider("Detection Confidence", 0.10, 0.90, 0.25, 0.05)
 iou_thresh   = st.sidebar.slider("NMS IoU Threshold",    0.20, 0.80, 0.50, 0.05)
 
 # ─── Input Source ──────────────────────────────────────────────────────────────

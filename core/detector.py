@@ -1,4 +1,4 @@
-﻿import torch
+import torch
 from ultralytics import YOLO
 import numpy as np
 from typing import List, Dict, Any, Optional
@@ -11,7 +11,7 @@ class ObjectDetector:
     def __init__(
         self,
         model_path: str = "yolov8n.pt",
-        confidence_threshold: float = 0.35,
+        confidence_threshold: float = 0.25,
         iou_threshold: float = 0.5,
         device: Optional[str] = None,
         classes: Optional[List[int]] = None

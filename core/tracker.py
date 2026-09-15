@@ -1,4 +1,4 @@
-﻿import numpy as np
+import numpy as np
 from ultralytics import YOLO
 from typing import Dict, Any, List, Optional
 import supervision as sv
@@ -11,7 +11,7 @@ class MultiObjectTracker:
     def __init__(
         self,
         model_path: str = "yolov8n.pt",
-        conf_thresh: float = 0.35,
+        conf_thresh: float = 0.25,
         iou_thresh: float = 0.5,
         device: str = "cuda:0"
     ):
